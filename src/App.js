@@ -1,26 +1,55 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import MainInput from "./components/mainInput/mainInput";
+
+class App extends Component {
+  state = {
+    countries: ["Poland", "Germany", "Spain", "France"],
+    autoCompleteCountries: [],
+    inputValue: ""
+  };
+
+  onChangeHandler = e => {
+    this.setState({ inputValue: e.target.value });
+    this.autoComplete(e.target.value);
+  };
+
+  onClickedHandler = e => {
+    this.setState({ inputValue: e.target.value });
+    this.autoComplete(e.target.value);
+  };
+
+  autoComplete = value => {
+    let filtred;
+    if (value !== "") {
+      filtred = this.state.countries.filter(
+        country => country.indexOf(value) !== -1
+      );
+    } else {
+      filtred = [];
+    }
+    if (this.state.countries.includes(value)) {
+      filtred = [];
+    }
+    this.setState({ autoCompleteCountries: filtred });
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <header className="Header">
+          <h1 className="Logo">skygate</h1>
+          <MainInput
+            changed={this.onChangeHandler}
+            filtred={this.state.autoCompleteCountries}
+            value={this.state.inputValue}
+            clicked={this.onClickedHandler}
+          />
+        </header>
+      </div>
+    );
+  }
 }
 
 export default App;
