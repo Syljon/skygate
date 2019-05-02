@@ -1,13 +1,30 @@
 .Header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   background: linear-gradient(135deg, rgb(0, 127, 255), rgb(0, 59, 255));
-  padding: 0 5rem;
-  min-height: 10vh;
+  padding: 2rem 0;
+  flex-direction: column;
 }
 .Logo {
   font-size: 3rem;
   color: #fff;
   font-weight: 400;
+  margin: 1rem 0;
+}
+
+@media (min-width: 500px) {
+  .Logo {
+    font-size: 5rem;
+  }
+  .Header {
+    flex-direction: row;
+    padding: 2rem;
+  }
+}
+
+@media (min-width: 700px) {
+  .Header {
+    padding: 2rem 5rem;
+  }
 }

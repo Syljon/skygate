@@ -16,6 +16,7 @@ class App extends Component {
   };
 
   onClickedHandler = e => {
+    console.log(e.target);
     this.setState({ inputValue: e.target.value });
     this.autoComplete(e.target.value);
   };
@@ -24,7 +25,7 @@ class App extends Component {
     let filtred;
     if (value !== "") {
       filtred = this.state.countries.filter(
-        country => country.indexOf(value) !== -1
+        country => country.toLowerCase().indexOf(value.toLowerCase()) !== -1
       );
     } else {
       filtred = [];

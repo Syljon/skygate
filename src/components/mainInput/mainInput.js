@@ -1,28 +1,34 @@
 import React from "react";
+import "./mainInput.css";
 
 const mainInput = props => {
   return (
-    <div autoComplete="off" action="">
-      <div className="autocomplete">
+    <form className="Form" autoComplete="off" action="">
+      <div className="InputContainer">
         <input
           type="text"
-          name="myCountry"
+          className="Input-text"
           placeholder="Country"
           onChange={props.changed}
           value={props.value}
         />
-        <div className="autocomplete-items">
+        <div className="Autocomplete-items">
           {props.filtred.map(ctr => (
-            <button key={ctr} onClick={props.clicked} value={ctr}>
+            <button
+              className="Autocomplete-item"
+              key={ctr}
+              onClick={props.clicked}
+              value={ctr}
+            >
               {ctr}
             </button>
           ))}
         </div>
       </div>
-      <button className="btn btn-Info" type="submit">
+      <button className="btn btn-Submit" type="submit">
         Submit
       </button>
-    </div>
+    </form>
   );
 };
 
