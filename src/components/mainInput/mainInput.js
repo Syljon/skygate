@@ -3,7 +3,7 @@ import "./mainInput.css";
 
 const mainInput = props => {
   return (
-    <form className="Form" autoComplete="off" action="">
+    <form className="Form" autoComplete="off" onSubmit={props.submit}>
       <div className="InputContainer">
         <input
           type="text"

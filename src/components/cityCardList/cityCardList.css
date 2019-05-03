@@ -1,0 +1,19 @@
+.cityCardList {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  padding-top: 2rem;
+  list-style-type: none;
+}
+.cityCardList_item {
+  width: 90%;
+  margin: 0 auto;
+  background-color: #f4f4f4;
+  box-shadow: 0 0.5rem 2rem 0.5rem rgba(0, 0, 0, 0.6);
+}
+
+@media (min-width: 650px) {
+  .cityCardList_item {
+    width: 584px;
+  }
+}
