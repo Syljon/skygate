@@ -1,0 +1,55 @@
+.InputContainer {
+  min-width: 200px;
+  position: relative;
+  display: inline-block;
+  align-items: center;
+}
+.Form {
+  text-align: center;
+}
+.Input-text {
+  border: none;
+  background-color: #f4f4f4;
+  padding: 1rem;
+  font-size: 1.5rem;
+  width: 100%;
+  margin: 0;
+}
+.Autocomplete-items {
+  position: absolute;
+  z-index: 99;
+  width: 100%;
+  top: 100%;
+}
+
+.Autocomplete-item {
+  padding: 1rem;
+  font-size: 1.5rem;
+  display: block;
+  width: 100%;
+  background-color: #fff;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  margin: 0;
+}
+.btn {
+  border: none;
+  font-size: 1.5rem;
+  padding: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+.btn-Submit {
+  background-color: #333;
+  color: #fff;
+}
+
+.btn-Submit:hover {
+  background-color: #888;
+  color: #fff;
+}
+
+@media (min-width: 600px) {
+  .InputContainer {
+    min-width: 300px;
+  }
+}
