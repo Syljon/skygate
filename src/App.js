@@ -6,14 +6,16 @@ import CityCardList from "./components/cityCardList/cityCardList";
 import Spinner from "./components/Spinner/spinner";
 class App extends Component {
   state = {
-    countries: ["poland", "germany", "spain", "france"],
+    countries: ["Poland", "Germany", "Spain", "France"],
     countryMark: { poland: "PL", germany: "DE", france: "FR", spain: "ES" },
     mostPollutedCities: [],
     autoCompleteCountries: [],
     inputValue: "",
     loading: false
   };
-
+  componentDidMount() {
+    this.setState({ inputValue: localStorage.getItem("inputValue") });
+  }
   getCitiesList = () => {
     axios
       .get("https://api.openaq.org/v1/latest", {
@@ -47,11 +49,13 @@ class App extends Component {
   };
 
   onChangeHandler = e => {
+    localStorage.setItem("inputValue", e.target.value);
     this.setState({ inputValue: e.target.value });
     this.autoComplete(e.target.value);
   };
 
   onClickedHandler = e => {
+    localStorage.setItem("inputValue", e.target.value);
     this.setState({ inputValue: e.target.value });
     this.autoComplete(e.target.value);
   };
@@ -59,7 +63,10 @@ class App extends Component {
   onSubmitHandler = e => {
     this.setState({ loading: true });
     e.preventDefault();
-    if (this.state.countries.includes(this.state.inputValue.toLowerCase())) {
+    const value =
+      this.state.inputValue.slice(0, 1).toUpperCase() +
+      this.state.inputValue.slice(1);
+    if (this.state.countries.includes(value)) {
       this.getCitiesList();
     } else if (this.state.inputValue.toLowerCase() === "") {
       this.setState({ loading: false, mostPollutedCities: [] });
@@ -74,12 +81,20 @@ class App extends Component {
     let filtred;
     if (value !== "") {
       filtred = this.state.countries.filter(
-        country => country.toLowerCase().indexOf(value.toLowerCase()) !== -1
+        country =>
+          country
+            .toLowerCase()
+            .slice(0, value.length)
+            .indexOf(value.toLowerCase()) !== -1
       );
     } else {
       filtred = [];
     }
-    if (this.state.countries.includes(value.toLowerCase())) {
+    if (
+      this.state.countries.includes(
+        value.slice(0, 1).toUpperCase() + value.slice(1)
+      )
+    ) {
       filtred = [];
     }
     this.setState({ autoCompleteCountries: filtred });

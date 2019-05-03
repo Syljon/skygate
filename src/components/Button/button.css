@@ -1,0 +1,27 @@
+.btn {
+  border: none;
+  min-width: 75px;
+  font-size: 1.5rem;
+  padding: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-round {
+  border-radius: 10px;
+}
+.btn-Submit {
+  background-color: #333;
+  color: #fff;
+}
+
+.btn-Submit:hover {
+  background-color: #666;
+}
+
+.btn-Info {
+  background-color: #003bff;
+  color: #fff;
+}
+.btn-Info:hover {
+  background-color: #007fff;
+}
