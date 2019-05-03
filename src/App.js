@@ -1,13 +1,16 @@
 import React, { Component } from "react";
+import axios from "axios";
 import "./App.css";
-
 import MainInput from "./components/mainInput/mainInput";
-
+import Spinner from "./components/Spinner/spinner";
 class App extends Component {
   state = {
-    countries: ["Poland", "Germany", "Spain", "France"],
+    countries: ["poland", "germany", "spain", "france"],
+    country: { poland: "PL", germany: "GR", grance: "FR", spain: "ES" },
+    mostPollutedCities: [],
     autoCompleteCountries: [],
-    inputValue: ""
+    inputValue: "",
+    loading: true
   };
 
   onChangeHandler = e => {
@@ -30,12 +33,51 @@ class App extends Component {
     } else {
       filtred = [];
     }
-    if (this.state.countries.includes(value)) {
+    if (this.state.countries.includes(value.toLowerCase())) {
       filtred = [];
     }
     this.setState({ autoCompleteCountries: filtred });
   };
 
+  getUnique = (arr, comp) => {
+    const unique = arr
+      .map(e => e[comp])
+      .map((e, i, final) => final.indexOf(e) === i && i)
+      .filter(e => arr[e])
+      .map(e => arr[e]);
+    return unique.slice(0, 10);
+  };
+
+  componentDidMount() {
+    axios
+      .get("https://api.openaq.org/v1/latest", {
+        params: {
+          country: "DE",
+          parameter: "pm25"
+        }
+      })
+      .then(response => {
+        console.log(response.data.results);
+        let T = [];
+        for (let key in response.data.results) {
+          T.push({
+            city: response.data.results[key].city,
+            value: response.data.results[key].measurements[0].value,
+            location: response.data.results[key].location
+          });
+        }
+        T.sort((a, b) => {
+          return -(a.value - b.value);
+        });
+        const unique = this.getUnique(T, "city");
+        console.log("unique", unique);
+        this.setState({ loading: false, mostPollutedCities: unique });
+      })
+      .catch(function(error) {
+        console.log(error);
+        this.setState({ loading: false });
+      });
+  }
   render() {
     return (
       <div className="App">
@@ -48,6 +90,7 @@ class App extends Component {
             clicked={this.onClickedHandler}
           />
         </header>
+        {this.state.loading ? <Spinner /> : null}
       </div>
     );
   }
