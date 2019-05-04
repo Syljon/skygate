@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/skygate/static/css/main.4d7ef9f5.chunk.css",
+    "main.js": "/skygate/static/js/main.7125dc6f.chunk.js",
+    "main.js.map": "/skygate/static/js/main.7125dc6f.chunk.js.map",
+    "runtime~main.js": "/skygate/static/js/runtime~main.10884107.js",
+    "runtime~main.js.map": "/skygate/static/js/runtime~main.10884107.js.map",
+    "static/js/2.853cc5a0.chunk.js": "/skygate/static/js/2.853cc5a0.chunk.js",
+    "static/js/2.853cc5a0.chunk.js.map": "/skygate/static/js/2.853cc5a0.chunk.js.map",
+    "index.html": "/skygate/index.html",
+    "precache-manifest.4254d84c24217f98183cf331bccf004d.js": "/skygate/precache-manifest.4254d84c24217f98183cf331bccf004d.js",
+    "service-worker.js": "/skygate/service-worker.js",
+    "static/css/main.4d7ef9f5.chunk.css.map": "/skygate/static/css/main.4d7ef9f5.chunk.css.map"
+  }
+}
