@@ -1,0 +1,57 @@
+.cityCard {
+  padding: 2rem 3rem;
+  margin: 0;
+  position: relative;
+  color: #333;
+  z-index: 1;
+}
+.cityCard::after {
+  z-index: -1;
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: -1px;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgb(0, 127, 255), rgb(0, 59, 255));
+  clip-path: polygon(100% 0, 50% 0, 100% 100%);
+}
+.cityCard_heading {
+  margin: 1rem 0;
+  padding: 0;
+  font-size: 2.5rem;
+}
+.cityCard_subheading {
+  margin: 1rem 0;
+  padding: 0;
+  font-size: 1.8rem;
+}
+.cityCard_value {
+  margin: 1rem 0;
+  font-size: 1.4rem;
+}
+.cityCard_description {
+  color: #111;
+  padding: 2rem 3rem;
+  margin: 0;
+  font-size: 1.8rem;
+  text-align: justify;
+}
+@media (min-width: 500px) {
+  .cityCard {
+    padding: 2rem 5rem;
+  }
+  .cityCard_heading {
+    font-size: 4rem;
+  }
+  .cityCard_subheading {
+    font-size: 2rem;
+  }
+  .cityCard_value {
+    font-size: 1.4rem;
+  }
+  .cityCard_description {
+    padding: 2rem 5rem;
+  }
+}

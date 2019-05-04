@@ -3,13 +3,13 @@ import "./mainInput.css";
 
 const mainInput = props => {
   return (
-    <form className="Form" autoComplete="off" action="">
+    <form className="Form" autoComplete="off" onSubmit={props.submit}>
       <div className="InputContainer">
         <input
           type="text"
           className="Input-text"
-          placeholder="Country"
-          onChange={props.changed}
+          placeholder="Enter Country ..."
+          onChange={props.inputH}
           value={props.value}
         />
         <div className="Autocomplete-items">
@@ -17,7 +17,7 @@ const mainInput = props => {
             <button
               className="Autocomplete-item"
               key={ctr}
-              onClick={props.clicked}
+              onClick={props.inputH}
               value={ctr}
             >
               {ctr}

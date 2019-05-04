@@ -4,9 +4,6 @@
   display: inline-block;
   align-items: center;
 }
-.Form {
-  text-align: center;
-}
 .Input-text {
   border: none;
   background-color: #f4f4f4;
@@ -31,21 +28,6 @@
   border: none;
   border-bottom: 1px solid #ddd;
   margin: 0;
-}
-.btn {
-  border: none;
-  font-size: 1.5rem;
-  padding: 1rem;
-  transition: all 0.2s ease-in-out;
-}
-.btn-Submit {
-  background-color: #333;
-  color: #fff;
-}
-
-.btn-Submit:hover {
-  background-color: #888;
-  color: #fff;
 }
 
 @media (min-width: 600px) {
