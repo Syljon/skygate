@@ -25,7 +25,6 @@ class App extends Component {
         }
       })
       .then(response => {
-        console.log(response.data.results);
         let T = [];
         for (let key in response.data.results) {
           T.push({
@@ -39,7 +38,6 @@ class App extends Component {
           return -(a.value - b.value);
         });
         const unique = this.getUnique(T, "city");
-        console.log("unique", unique);
         this.setState({ loading: false, mostPollutedCities: unique });
       })
       .catch(function(error) {
@@ -48,13 +46,7 @@ class App extends Component {
       });
   };
 
-  onChangeHandler = e => {
-    localStorage.setItem("inputValue", e.target.value);
-    this.setState({ inputValue: e.target.value });
-    this.autoComplete(e.target.value);
-  };
-
-  onClickedHandler = e => {
+  inputHandler = e => {
     localStorage.setItem("inputValue", e.target.value);
     this.setState({ inputValue: e.target.value });
     this.autoComplete(e.target.value);
@@ -74,7 +66,6 @@ class App extends Component {
       alert("Country not supported. Try: Poland, Germany,Spain, France");
       this.setState({ loading: false });
     }
-    console.log(this.state.inputValue);
   };
 
   autoComplete = value => {
@@ -118,10 +109,9 @@ class App extends Component {
         <header className="Header">
           <h1 className="Logo">skygate</h1>
           <MainInput
-            changed={this.onChangeHandler}
+            inputH={this.inputHandler}
             filtred={this.state.autoCompleteCountries}
             value={this.state.inputValue}
-            clicked={this.onClickedHandler}
             submit={this.onSubmitHandler}
           />
         </header>

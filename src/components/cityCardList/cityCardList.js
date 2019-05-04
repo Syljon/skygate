@@ -5,9 +5,8 @@ const cityCardList = props => {
   return (
     <ul className="cityCardList">
       {props.list.map(el => (
-        <li className="cityCardList_item">
+        <li key={el.city} className="cityCardList_item">
           <CityCard
-            key={el.city}
             city={el.city}
             location={el.location}
             value={el.value}
