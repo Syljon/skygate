@@ -22,15 +22,6 @@
   padding: 0;
   font-size: 2.5rem;
 }
-.cityCard_subheading {
-  margin: 1rem 0;
-  padding: 0;
-  font-size: 1.8rem;
-}
-.cityCard_value {
-  margin: 1rem 0;
-  font-size: 1.4rem;
-}
 .cityCard_description {
   color: #111;
   padding: 2rem 3rem;
@@ -44,12 +35,6 @@
   }
   .cityCard_heading {
     font-size: 4rem;
-  }
-  .cityCard_subheading {
-    font-size: 2rem;
-  }
-  .cityCard_value {
-    font-size: 1.4rem;
   }
   .cityCard_description {
     padding: 2rem 5rem;
