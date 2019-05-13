@@ -11,7 +11,6 @@ Right now it's only aviable for Poland,Spain,Germany and France. Cities are show
 2. Before first run you must download all dependencies by writing `npm install` in project file
 3. If everything worked out use `npm start` to development server
 
-If you don't want to download the app you can still use it by [Live version](https://syljon.github.io/skygate/)
 
 ### Technologies
 
